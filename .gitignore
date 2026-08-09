@@ -1,3 +1,4 @@
-/.DS_Store
-/7DTonCOSMOS_tex
-/COSMOS_data
+/*
+!/.gitignore
+!/Notebooks/
+!/Notebooks?**
