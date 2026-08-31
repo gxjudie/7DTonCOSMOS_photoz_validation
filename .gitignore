@@ -1,4 +1,53 @@
-/*
-!/.gitignore
-!/Notebooks/
-!/Notebooks?**
+# ===== 7DTonCOSMOS optimized .gitignore =====
+
+# --- Data (29G) / Outputs (666M) : NEVER commit, keep local ---
+COSMOS_data/
+output/
+*.fits
+*.weight.fits
+*.com.fits
+
+# --- Vendor / Heavy deps (9.3G) ---
+cigale/
+.eggs/
+build/
+dist/
+*.egg-info/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env/
+*.egg
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- LaTeX build artifacts (keep .tex/.bib/.png source) ---
+7DTonCOSMOS_tex/**/*.aux
+7DTonCOSMOS_tex/**/*.bbl
+7DTonCOSMOS_tex/**/*.blg
+7DTonCOSMOS_tex/**/*.log
+7DTonCOSMOS_tex/**/*.fls
+7DTonCOSMOS_tex/**/*.fdb_latexmk
+7DTonCOSMOS_tex/**/*.synctex.gz
+7DTonCOSMOS_tex/**/*.out
+7DTonCOSMOS_tex/**/*.toc
+7DTonCOSMOS_tex/**/*.pdf
+
+# Keep filter curves image for proposal
+!7DTonCOSMOS_tex/**/filter_curves.png
