@@ -37,6 +37,9 @@ Thumbs.db
 *.swp
 *.swo
 
+# --- Local presentation materials ---
+presentation/
+
 # --- LaTeX build artifacts (keep .tex/.bib/.png source) ---
 7DTonCOSMOS_tex/**/*.aux
 7DTonCOSMOS_tex/**/*.bbl
