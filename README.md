@@ -76,7 +76,8 @@ bias = mean((z_phot - z_ref) / (1 + z_ref))
 │   ├── 0_preReaserch.ipynb
 │   ├── 1_multibandphot.ipynb
 │   ├── 2_singphotandmatching.ipynb
-│   ├── 3_singlephotcatalog_visualization.ipynb
+│   ├── 2.1_singlephotcatalog_visualization.ipynb
+│   ├── 2.2_7DTdepthAnalysis.ipynb
 │   └── 4_validation.ipynb
 ├── seppconfig/
 │   ├── multiphotconfig.config
@@ -98,7 +99,8 @@ bias = mean((z_phot - z_ref) / (1 + z_ref))
 - `0_preReaserch.ipynb`: preliminary checks, WCS consistency tests, valid-mask construction, S/N checks, and inspection of the external COSMOS catalog.
 - `1_multibandphot.ipynb`: multi-band photometry experiments, chi/chi-mean detection-image construction, SourceXtractor++ execution, and SED plot checks.
 - `2_singphotandmatching.ipynb`: single-band photometry and catalog matching workflow.
-- `3_singlephotcatalog_visualization.ipynb`: read-only visual analysis of the authoritative catalog products.
+- `2.1_singlephotcatalog_visualization.ipynb`: read-only visual analysis of the authoritative catalog products.
+- `2.2_7DTdepthAnalysis.ipynb`: image inspection and 7DT depth analysis around catalog sources.
 - `4_validation.ipynb`: reserved for final photo-z validation; currently not completed.
 
 ## Current Status
