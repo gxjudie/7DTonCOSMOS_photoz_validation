@@ -1,0 +1,91 @@
+{"kind":"deck","id":"pr/wbbcmj","name":"Deck"}
+{"kind":"layout","layoutId":"1b4e59ef-fe45-4502-891c-73308dc81fb6","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"cd0ef8ed-6867-4896-8b31-262bbf3a8360","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/gaqh81","slide":1,"title":"7DT Single-band Matching in COSMOS1","textShapes":16}
+{"kind":"textbox","id":"sh/cvqpcbi1","slide":1,"name":"slide-1-title","text":"7DT Single-band Matching in COSMOS1","textPreview":"7DT Single-band Matching in COSMOS1","textChars":35,"textLines":1,"bbox":[56,28,1168,59]}
+{"kind":"textbox","id":"sh/bux8j61g","slide":1,"name":"slide-1-subtitle","text":"From 20 band catalogs to a 75,259-object union catalog","textPreview":"From 20 band catalogs to a 75,259-object union catalog","textChars":54,"textLines":1,"bbox":[58,91,1160,34]}
+{"kind":"shape","id":"sh/qto7a10v","slide":1,"bbox":[58,119,1164,0]}
+{"kind":"textbox","id":"sh/p8fqhwja","slide":1,"name":"7DT · COSMOS1","text":"7DT · COSMOS1","textPreview":"7DT · COSMOS1","textChars":13,"textLines":1,"bbox":[58,680,300,24]}
+{"kind":"textbox","id":"sh/o76p8rip","slide":1,"name":"1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[1180,680,40,24]}
+{"kind":"textbox","id":"sh/36x8fm14","slide":1,"name":"20 band catalogs","text":"20 band catalogs","textPreview":"20 band catalogs","textChars":16,"textLines":1,"bbox":[66,163,505,36]}
+{"kind":"textbox","id":"sh/25o76h0j","slide":1,"name":"78,882 selected detections","text":"78,882 selected detections","textPreview":"78,882 selected detections","textChars":26,"textLines":1,"bbox":[66,200,505,30]}
+{"kind":"shape","id":"sh/14fqdcjy","slide":1,"bbox":[85,241,0,29]}
+{"kind":"textbox","id":"sh/g36p4r2t","slide":1,"name":"↓","text":"↓","textPreview":"↓","textChars":1,"textLines":1,"bbox":[75,241,22,30]}
+{"kind":"textbox","id":"sh/m507q5sb","slide":1,"name":"7DT cross-band match","text":"7DT cross-band match","textPreview":"7DT cross-band match","textChars":20,"textLines":1,"bbox":[66,279,505,36]}
+{"kind":"textbox","id":"sh/nq9ojatw","slide":1,"name":"19,489 7DT masters","text":"19,489 7DT masters","textPreview":"19,489 7DT masters","textChars":18,"textLines":1,"bbox":[66,316,505,30]}
+{"kind":"shape","id":"sh/8ripsfah","slide":1,"bbox":[85,357,0,29]}
+{"kind":"textbox","id":"sh/9srqlkbm","slide":1,"name":"↓","text":"↓","textPreview":"↓","textChars":1,"textLines":1,"bbox":[75,357,22,30]}
+{"kind":"textbox","id":"sh/y1g7mlsz","slide":1,"name":"FINALCAT sky match","text":"FINALCAT sky match","textPreview":"FINALCAT sky match","textChars":18,"textLines":1,"bbox":[66,395,505,36]}
+{"kind":"textbox","id":"sh/z2pofqtk","slide":1,"name":"2,977 shared objects","text":"2,977 shared objects","textPreview":"2,977 shared objects","textChars":20,"textLines":1,"bbox":[66,432,505,30]}
+{"kind":"shape","id":"sh/03ipova5","slide":1,"bbox":[85,473,0,29]}
+{"kind":"textbox","id":"sh/l4r6h0bq","slide":1,"name":"↓","text":"↓","textPreview":"↓","textChars":1,"textLines":1,"bbox":[75,473,22,30]}
+{"kind":"textbox","id":"sh/qxg7ils3","slide":1,"name":"Union catalog","text":"Union catalog","textPreview":"Union catalog","textChars":13,"textLines":1,"bbox":[66,511,505,36]}
+{"kind":"textbox","id":"sh/bypobqto","slide":1,"name":"75,259 total objects","text":"75,259 total objects","textPreview":"75,259 total objects","textChars":20,"textLines":1,"bbox":[66,548,505,30]}
+{"kind":"textbox","id":"sh/14nmlwrm","slide":1,"name":"Matching uses a position error for ","text":"Matching uses a position error for each band.","textPreview":"Matching uses a position error for each band.","textChars":45,"textLines":1,"bbox":[625,630,557,28]}
+{"kind":"image","id":"im/wza1gvqh","slide":1,"name":"","alt":"Matching input count by 7DT band","bbox":[625,150,565,225]}
+{"kind":"image","id":"im/x0j2p072","slide":1,"name":"","alt":"Adopted position uncertainty by 7DT band","bbox":[625,391,565,225]}
+{"kind":"notes","id":"nt/gaqh81","slide":1,"text":"Hello. Today I will show how I matched sources in the 7DT COSMOS1 data. This catalog is one step toward testing redshift estimates. I started with 20 separate band catalogs. I found and measured sources in each band. After quality cuts, I used 78,882 detections from the shared area. I first linked the 7DT detections across bands. Then I compared the new 7DT catalog with FINALCAT.\n\nSource: presentation/2026-10-02/matching_presentation_plan.md; output/COSMOS1/singlebandphot/matching/figures/singleband_input_summary.png."}
+{"kind":"slide","id":"sl/yk02lm","slide":2,"title":"7DT Cross-band Matching","textShapes":22}
+{"kind":"textbox","id":"sh/twbehwja","slide":2,"name":"slide-2-title","text":"7DT Cross-band Matching","textPreview":"7DT Cross-band Matching","textChars":23,"textLines":1,"bbox":[56,28,1168,59]}
+{"kind":"textbox","id":"sh/6tkvmhkj","slide":2,"name":"slide-2-subtitle","text":"Use position error to judge whether detections belong to one object","textPreview":"Use position error to judge whether detections belong to one object","textChars":67,"textLines":1,"bbox":[58,91,1160,34]}
+{"kind":"shape","id":"sh/7utwfm14","slide":2,"bbox":[58,119,1164,0]}
+{"kind":"textbox","id":"sh/kridk72d","slide":2,"name":"7DT · COSMOS1","text":"7DT · COSMOS1","textPreview":"7DT · COSMOS1","textChars":13,"textLines":1,"bbox":[58,680,300,24]}
+{"kind":"textbox","id":"sh/5sredcjy","slide":2,"name":"2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[1180,680,40,24]}
+{"kind":"textbox","id":"sh/ip0vihkn","slide":2,"name":"01","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[60,170,235,42]}
+{"kind":"textbox","id":"sh/jq9wbm1s","slide":2,"name":"New band source","text":"New band source","textPreview":"New band source","textChars":15,"textLines":1,"bbox":[60,219,250,65]}
+{"kind":"shape","id":"sh/w3idg72h","slide":2,"bbox":[315,244,35,0]}
+{"kind":"textbox","id":"sh/xore9cj2","slide":2,"name":"›","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[325,220,34,48]}
+{"kind":"textbox","id":"sh/hszmh0j2","slide":2,"name":"02","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[365,170,235,42]}
+{"kind":"textbox","id":"sh/grq5ov2h","slide":2,"name":"3σ candidate search","text":"3σ candidate search","textPreview":"3σ candidate search","textChars":19,"textLines":1,"bbox":[365,219,250,65]}
+{"kind":"shape","id":"sh/vqh4fq1w","slide":2,"bbox":[620,244,35,0]}
+{"kind":"textbox","id":"sh/u5onmlkr","slide":2,"name":"›","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[630,220,34,48]}
+{"kind":"textbox","id":"sh/t4fmdgj6","slide":2,"name":"03","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[670,170,235,42]}
+{"kind":"textbox","id":"sh/8365kb2l","slide":2,"name":"One-to-one match","text":"One-to-one match","textPreview":"One-to-one match","textChars":16,"textLines":1,"bbox":[670,219,250,65]}
+{"kind":"shape","id":"sh/72x4bq10","slide":2,"bbox":[925,244,35,0]}
+{"kind":"textbox","id":"sh/61onilkf","slide":2,"name":"›","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[935,220,34,48]}
+{"kind":"textbox","id":"sh/l0fm9gju","slide":2,"name":"04","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[975,170,235,42]}
+{"kind":"textbox","id":"sh/kz65gb29","slide":2,"name":"Weighted master update","text":"Weighted master update","textPreview":"Weighted master update","textChars":22,"textLines":1,"bbox":[975,219,250,65]}
+{"kind":"shape","id":"sh/wvadcfeh","slide":2,"bbox":[58,310,1164,0]}
+{"kind":"textbox","id":"sh/xwjelkv2","slide":2,"name":"Band position error","text":"Band position error","textPreview":"Band position error","textChars":19,"textLines":1,"bbox":[62,344,330,34]}
+{"kind":"textbox","id":"sh/atsva5wb","slide":2,"name":"σb = FWHMb / (2.355 × S/Nmin,b)","text":"σb = FWHMb / (2.355 × S/Nmin,b)","textPreview":"σb = FWHMb / (2.355 × S/Nmin,b)","textChars":31,"textLines":1,"bbox":[62,384,550,44]}
+{"kind":"textbox","id":"sh/bu1wjadw","slide":2,"name":"Pair score","text":"Pair score","textPreview":"Pair score","textChars":10,"textLines":1,"bbox":[672,344,280,34]}
+{"kind":"textbox","id":"sh/orad8vel","slide":2,"name":"D = d / √(σmaster² + σb²) < 3","text":"D = d / √(σmaster² + σb²) < 3","textPreview":"D = d / √(σmaster² + σb²) < 3","textChars":29,"textLines":1,"bbox":[672,384,550,44]}
+{"kind":"textbox","id":"sh/9sjeh0f6","slide":2,"name":"Updated master position","text":"Updated master position","textPreview":"Updated master position","textChars":23,"textLines":1,"bbox":[62,481,440,34]}
+{"kind":"textbox","id":"sh/mp8v6lwf","slide":2,"name":"xmaster = Σ(xb / σb²) / Σ(1 / σb²)","text":"xmaster = Σ(xb / σb²) / Σ(1 / σb²)","textPreview":"xmaster = Σ(xb / σb²) / Σ(1 / σb²)","textChars":34,"textLines":1,"bbox":[62,521,750,48]}
+{"kind":"textbox","id":"sh/nq1wfqx0","slide":2,"name":"High-precision positions get more w","text":"High-precision positions get more weight.","textPreview":"High-precision positions get more weight.","textChars":41,"textLines":1,"bbox":[62,590,1010,34]}
+{"kind":"notes","id":"nt/yk02lm","slide":2,"text":"The images share the same pixel grid. I processed the bands in wavelength order, starting with m400. A source position is less certain when the image is less sharp or the signal is weaker. So I gave each band its own position error. For each new source, I compared its distance from the current master with their combined error. I kept pairs within three times that error. When a source joined a master, I updated the master position. Better positions received more weight. This made one position for each linked object.\n\nSource: presentation/2026-10-02/matching_presentation_plan.md."}
+{"kind":"slide","id":"sl/87voux","slide":3,"title":"7DT Matching Validation","textShapes":8}
+{"kind":"textbox","id":"sh/rytsz2xs","slide":3,"name":"slide-3-title","text":"7DT Matching Validation","textPreview":"7DT Matching Validation","textChars":23,"textLines":1,"bbox":[56,28,1168,59]}
+{"kind":"textbox","id":"sh/cjm9s7yd","slide":3,"name":"slide-3-subtitle","text":"Accepted members agree with their final master position","textPreview":"Accepted members agree with their final master position","textChars":55,"textLines":1,"bbox":[58,91,1160,34]}
+{"kind":"shape","id":"sh/dkva1sfy","slide":3,"bbox":[58,119,1164,0]}
+{"kind":"textbox","id":"sh/yl4buxg3","slide":3,"name":"7DT · COSMOS1","text":"7DT · COSMOS1","textPreview":"7DT · COSMOS1","textChars":13,"textLines":1,"bbox":[58,680,300,24]}
+{"kind":"textbox","id":"sh/zmds32xo","slide":3,"name":"3","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[1180,680,40,24]}
+{"kind":"textbox","id":"sh/0nmtw7y9","slide":3,"name":"99.85%","text":"99.85%","textPreview":"99.85%","textChars":6,"textLines":1,"bbox":[60,150,450,85]}
+{"kind":"textbox","id":"sh/lova5cfu","slide":3,"name":"within 3σ of the final master","text":"within 3σ of the final master","textPreview":"within 3σ of the final master","textChars":29,"textLines":1,"bbox":[64,233,680,37]}
+{"kind":"textbox","id":"sh/mp4byhgf","slide":3,"name":"117 suspect members of 78,882 detec","text":"117 suspect members of 78,882 detections","textPreview":"117 suspect members of 78,882 detections","textChars":40,"textLines":1,"bbox":[770,180,460,42]}
+{"kind":"textbox","id":"sh/y543adon","slide":3,"name":"19,489 masters · 1,157 detected in ","text":"19,489 masters · 1,157 detected in all 20 bands · R = dfinal / √(σfinal² + σb²)","textPreview":"19,489 masters · 1,157 detected in all 20 bands · R = dfinal / √(σfinal² + σb²)","textChars":79,"textLines":1,"bbox":[59,631,1165,34]}
+{"kind":"image","id":"im/ap4bypcf","slide":3,"name":"","alt":"Normalized separation for accepted assignments","bbox":[56,293,565,330]}
+{"kind":"image","id":"im/43m1wnyt","slide":3,"name":"","alt":"Residual distance from final weighted master position","bbox":[655,293,565,330]}
+{"kind":"notes","id":"nt/87voux","slide":3,"text":"Next, I checked the final 7DT masters. For each member, I measured its distance from the final master position. I divided this distance by the expected position error. Most members are close to their final master. In total, 99.85 percent are within three times the error. Only 117 of 78,882 members are outside this range. The final catalog has 19,489 7DT masters. This check shows good position agreement within the catalog. It does not prove that every match is correct.\n\nAdditional results: median normalized residual 0.364; 95th percentile 1.647; 99th percentile 2.333. The near-zero spike in assignment separation contains sources used to initialize masters. Source: presentation/2026-10-02/matching_presentation_plan.md; output/COSMOS1/singlebandphot/matching/figures/7dt_matching_summary.png."}
+{"kind":"slide","id":"sl/4qzkf9","slide":4,"title":"FINALCAT Match Radius","textShapes":5}
+{"kind":"textbox","id":"sh/dsbuhcvi","slide":4,"name":"slide-4-title","text":"FINALCAT Match Radius","textPreview":"FINALCAT Match Radius","textChars":21,"textLines":1,"bbox":[56,28,1168,59]}
+{"kind":"textbox","id":"sh/q5kv6hc7","slide":4,"name":"slide-4-subtitle","text":"The random-shift test supports a 0.7″ sky-match radius","textPreview":"The random-shift test supports a 0.7″ sky-match radius","textChars":54,"textLines":1,"bbox":[58,91,1160,34]}
+{"kind":"shape","id":"sh/b6tcf2ds","slide":4,"bbox":[58,119,1164,0]}
+{"kind":"textbox","id":"sh/0vmdcru9","slide":4,"name":"7DT · COSMOS1","text":"7DT · COSMOS1","textPreview":"7DT · COSMOS1","textChars":13,"textLines":1,"bbox":[58,680,300,24]}
+{"kind":"textbox","id":"sh/lwvulwvu","slide":4,"name":"4","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1180,680,40,24]}
+{"kind":"textbox","id":"sh/1sfahkf2","slide":4,"name":"Eight 10″ or 20″ shifts estimate ch","text":"Eight 10″ or 20″ shifts estimate chance associations.","textPreview":"Eight 10″ or 20″ shifts estimate chance associations.","textChars":53,"textLines":1,"bbox":[104,653,1055,28]}
+{"kind":"table","id":"tb/4j25gjax","slide":4,"name":"","rows":4,"cols":4,"preview":"Radius | Actual matches | Shifted random | Random / actual","bbox":[104,494,1072,154]}
+{"kind":"image","id":"im/jexc7eh0","slide":4,"name":"","alt":"Matches by radius","bbox":[46,157,390,304]}
+{"kind":"image","id":"im/idove90f","slide":4,"name":"","alt":"Random association share","bbox":[442,157,390,304]}
+{"kind":"image","id":"im/d4zedoz2","slide":4,"name":"","alt":"Separation of selected pairs","bbox":[838,157,390,304]}
+{"kind":"notes","id":"nt/4qzkf9","slide":4,"text":"I then matched the 7DT masters to FINALCAT using sky positions. I tested three maximum distances. To estimate chance matches, I shifted the FINALCAT positions and ran the match again. I used eight shifted samples. At 0.5 arcseconds, there were 2,682 real matches. At 0.7 arcseconds, there were 2,977. The share of chance matches was about 3.6 percent. At 1.0 arcseconds, the number of real matches rose to 3,212. But the share of chance matches rose faster, to about 6.6 percent. I therefore chose 0.7 arcseconds. The median distance of the selected pairs is 0.205 arcseconds.\n\nAdditional result: 95th percentile separation 0.578 arcseconds. Source: presentation/2026-10-02/matching_presentation_plan.md; output/COSMOS1/singlebandphot/matching/figures/finalcat_radius_diagnostics.png."}
+{"kind":"slide","id":"sl/ay55in","slide":5,"title":"Final Union Catalog","textShapes":4}
+{"kind":"textbox","id":"sh/netkn6po","slide":5,"name":"slide-5-title","text":"Final Union Catalog","textPreview":"Final Union Catalog","textChars":19,"textLines":1,"bbox":[56,28,1168,59]}
+{"kind":"textbox","id":"sh/of21gb69","slide":5,"name":"slide-5-subtitle","text":"2,977 shared objects in a 75,259-object catalog","textPreview":"2,977 shared objects in a 75,259-object catalog","textChars":47,"textLines":1,"bbox":[58,91,1160,34]}
+{"kind":"shape","id":"sh/pgb2pw7u","slide":5,"bbox":[58,119,1164,0]}
+{"kind":"textbox","id":"sh/e9kjaho7","slide":5,"name":"7DT · COSMOS1","text":"7DT · COSMOS1","textPreview":"7DT · COSMOS1","textChars":13,"textLines":1,"bbox":[58,680,300,24]}
+{"kind":"textbox","id":"sh/fat0jmps","slide":5,"name":"5","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1180,680,40,24]}
+{"kind":"table","id":"tb/b2p8jaxo","slide":5,"name":"","rows":5,"cols":2,"preview":"Master class | Objects","bbox":[238,493,804,147]}
+{"kind":"image","id":"im/907qxc36","slide":5,"name":"","alt":"Sky positions of matched and unmatched sources","bbox":[54,148,555,330]}
+{"kind":"image","id":"im/ozy947ml","slide":5,"name":"","alt":"Counts of matched, 7DT-only, and FINALCAT-only sources","bbox":[666,148,555,330]}
+{"kind":"notes","id":"nt/ay55in","slide":5,"text":"The final result has 2,977 objects seen in both 7DT and FINALCAT. It also has 16,512 objects found only in 7DT, and 55,770 found only in FINALCAT. Together, they form a union catalog of 75,259 objects. The main points are simple. The 7DT matches use the position error of each band. The internal position check is strong. The FINALCAT radius has a chance-match test behind it. This catalog is ready for the next photo-z analysis. Thank you.\n\nSource: presentation/2026-10-02/matching_presentation_plan.md; output/COSMOS1/singlebandphot/matching/figures/master_population_summary.png."}
