@@ -40,7 +40,7 @@ FINALCAT positional matching
 
 다음 그림의 `Matching input count`와 `Adopted matching uncertainty` 패널만 crop하여 오른쪽에 작게 배치한다.
 
-`../../output/COSMOS1/singlebandphot/matching/figures/singleband_input_summary.png`
+`../../output/COSMOS1/singlebandphot/matching/figures/2_singphotandmatching/singleband_input/singleband_input_summary.png`
 
 ### 발표 문장
 
@@ -131,7 +131,7 @@ $$
 - `Assignment separation`
 - `Final consistency`
 
-`../../output/COSMOS1/singlebandphot/matching/figures/7dt_matching_summary.png`
+`../../output/COSMOS1/singlebandphot/matching/figures/2_singphotandmatching/matching_7dt/7dt_matching_summary.png`
 
 `Assignment separation`의 0 부근에는 초기 `m400` source가 포함되어 있으므로, 발표에서는 분포의 전체 형태와 cutoff에만 집중한다.
 
@@ -163,7 +163,7 @@ FINALCAT match radius를 데이터 기반으로 선택했음을 보여준다.
 
 아래 figure의 세 패널을 그대로 사용한다.
 
-`../../output/COSMOS1/singlebandphot/matching/figures/finalcat_radius_diagnostics.png`
+`../../output/COSMOS1/singlebandphot/matching/figures/2_singphotandmatching/finalcat_radius/finalcat_radius_diagnostics.png`
 
 ### 발표 문장
 
@@ -188,7 +188,7 @@ FINALCAT match radius를 데이터 기반으로 선택했음을 보여준다.
 
 다음 그림에서 `Sky distribution`과 `Master classes` 패널만 사용한다.
 
-`../../output/COSMOS1/singlebandphot/matching/figures/master_population_summary.png`
+`../../output/COSMOS1/singlebandphot/matching/figures/2_singphotandmatching/master_population/master_population_summary.png`
 
 ### Take-home messages
 
