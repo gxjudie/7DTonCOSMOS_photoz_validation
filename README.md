@@ -95,7 +95,8 @@ bias = mean((z_phot - z_ref) / (1 + z_ref))
 │   └── transmission_curve/
 ├── 7DTonCOSMOS_tex/
 │   └── Proposal/
-├── Report/             # matching presentation, figures, and build scripts
+├── Report/             # tracked input CSVs, report text, and build scripts
+│                       # generated figures/PDFs/slides stay local
 ├── COSMOS_data/        # local data, ignored by git
 ├── output/             # generated products, ignored by git
 └── cigale/             # local/vendor CIGALE copy, ignored by git
@@ -187,13 +188,31 @@ Still in progress:
 
 ## Git Policy
 
-This repository tracks research code, notebooks, configuration files, filter curves, and proposal files.
+This repository tracks numbered analysis notebooks, research code, configuration files, filter curves, proposal sources, and input CSVs.
+
+Within `Notebooks/`, only notebooks with a numeric prefix and underscore (for example `1_multibandphot.ipynb` or `2.1_singlephotcatalog_visualization.ipynb`) are versioned. `Proposal.ipynb` and `sketchbook.ipynb` remain available locally but are not tracked. The shared Python helper `Notebooks/sourceinfo_report.py` remains tracked.
+
+The main directories have these roles:
+
+| Directory | Purpose | Git policy |
+| --- | --- | --- |
+| `Notebooks/` | Numbered analysis workflow and shared source-report helper | Numbered notebooks and code tracked; unnumbered notebooks local |
+| `seppconfig/` | SourceXtractor++ photometry configurations | Tracked |
+| `sed_fitting/` | CIGALE configuration and filter transmission curves | Tracked |
+| `7DTonCOSMOS_tex/Proposal/` | Proposal LaTeX source, bibliography, and source image | Sources tracked; compiled PDF and build files local |
+| `Report/` | Report text, input CSVs, and figure/deck builders | Source text/code/inputs tracked; generated figures, PDFs, slides, and build state local |
+| `COSMOS_data/` | COSMOS1–4 images and reference catalog | Local only |
+| `output/` | Photometric catalogs, matching results, depth grids, and diagnostics | Local only |
+| `cigale/` | Local/vendor CIGALE installation | Local only |
+| `_tmp/` | Temporary diagnostic products | Local only |
 
 The following are intentionally ignored:
 
 - `COSMOS_data/`: large FITS observations and reference catalogs.
 - `output/`: generated catalogs, plots, and intermediate products.
 - `cigale/`: local/vendor copy of CIGALE.
+- Unnumbered notebooks under `Notebooks/`, including `Proposal.ipynb` and `sketchbook.ipynb`.
+- Generated PNG/PDF/PPTX reports, report build/cache directories, `band_hist_depth/` products, and `_tmp/`.
 - Python caches, Jupyter checkpoints, OS files, IDE settings, and LaTeX build artifacts.
 
 If large data products need to be versioned later, use a data-management tool such as Git LFS, DVC, or an external archive rather than regular git commits.

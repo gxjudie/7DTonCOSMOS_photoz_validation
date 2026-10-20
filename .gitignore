@@ -73,3 +73,9 @@ presentation/
 *.fits.gz
 *.fit.gz
 *.fits.fz
+
+# --- Version only numbered analysis notebooks ---
+# Keep Proposal.ipynb, sketchbook.ipynb, and other unnumbered notebooks local.
+# The exception covers integer/decimal prefixes such as 1_ and 2.1_.
+/Notebooks/**/*.ipynb
+!/Notebooks/[0-9]*_*.ipynb
