@@ -54,3 +54,22 @@ presentation/
 
 # Keep filter curves image for proposal
 !7DTonCOSMOS_tex/**/filter_curves.png
+
+# --- Generated report figures, exports, and temporary build state ---
+# Keep notebooks, analysis code, documentation, and input CSVs versioned.
+# Figures/exports can be regenerated from the notebooks and stay local.
+/Report/**/*.png
+/Report/**/*.pdf
+/Report/**/*.pptx
+/Report/**/.build/
+/Report/**/.codex-finalizer/
+/Report/**/.matplotlib/
+/Report/**/band_hist_depth/
+/_tmp/
+
+# Other FITS filename conventions and compressed image products.
+*.fit
+*.fts
+*.fits.gz
+*.fit.gz
+*.fits.fz
