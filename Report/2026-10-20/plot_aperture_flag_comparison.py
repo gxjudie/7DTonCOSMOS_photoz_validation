@@ -52,7 +52,9 @@ def main():
     output.mkdir(parents=True,exist_ok=True)
     samples={
         'baseline':selected_columns(EXPERIMENT/'baseline/output/singlephot'/FILENAME),
-        'no_flag_cut':selected_columns(EXPERIMENT/'singlephot'/FILENAME),
+        # Once promoted, use the current branch's canonical combined product.
+        'no_flag_cut':selected_columns((ROOT/'output/singlephot'/FILENAME)
+            if (EXPERIMENT/'promotion.json').exists() else EXPERIMENT/'singlephot'/FILENAME),
     }
     reference=Table.read(ROOT/'COSMOS_data/COSMOS_finalcat.fits')
     reference_rm=np.asarray(np.ma.filled(reference['RM'],np.nan),float)
@@ -155,7 +157,8 @@ def main():
     bin_table.write(output/'fractions_by_RM_bin.csv',format='ascii.csv',overwrite=True)
     summary=dict(baseline_commit='d3c9272',branch='codex/aperture-flag-ablation',N_reference_RMle21=denominator21,
                  rows=[dict(zip(overall_table.colnames,[v.item() if isinstance(v,np.generic) else v for v in row])) for row in overall_table],
-                 production_outputs_preserved=True,photometry_rerun=False,
+                 production_outputs_preserved=not (EXPERIMENT/'promotion.json').exists(),
+                 historical_baseline_preserved=True,photometry_rerun=False,
                  denominator='All FINALCAT rows with finite positive RM <= threshold; no new footprint restriction.')
     (output/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
     print(overall_table)

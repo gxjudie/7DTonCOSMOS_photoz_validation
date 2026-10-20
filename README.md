@@ -113,13 +113,14 @@ bias = mean((z_phot - z_ref) / (1 + z_ref))
 - `2.3_numofmatchedbands_digonostics.ipynb`: construct and reload a FINALCAT-centered COSMOS1–4 catalog, reconcile SDSS counterparts, and analyze successful band counts and FINALCAT RM distributions.
 - `sourceinfo_report.py`: shared source viewer for notebooks 2.2 and 2.3, with two portrait A4 pages containing image cutouts, diagnostics, SED, and source tables; supports PDF export.
 - `3_photozvalidation.ipynb`: placeholder for final photo-z validation; currently empty.
+- `4_Proposal_aperture_flag_results.ipynb`: versioned, fully executed snapshot of the local Proposal notebook with the aperture-flag requirement removed; includes planning, size, surface-brightness, updated depth and fraction results.
 
 ## Running the Catalog and Diagnostics Workflow
 
 Use a Python/Jupyter environment with NumPy, Astropy, SciPy, Matplotlib, and tqdm. SourceXtractor++ must be available as `sourcextractor++` when generating missing single-band catalogs. SDSS downloads and conflict rechecks require network access. CIGALE is needed for the later SED-fitting stage.
 
 1. Place science images (`*.com.fits`), weight images (`*.weight.fits`), and `COSMOS{field}_validmask.fits` under `COSMOS_data/COSMOS{field}/`; place the reference catalog at `COSMOS_data/COSMOS_finalcat.fits`. Create COSMOS4 binary weights if needed.
-2. Run `2_singphotandmatching.ipynb` with `COSMOS` set to each field from 1 through 4. Review `OVERWRITE_PHOTOMETRY`, `OVERWRITE_MATCHING`, and `OVERWRITE_SDSS`: the current defaults reuse existing raw photometry but rebuild matching and SDSS products. The notebook generates field/band SourceXtractor++ configuration files when photometry runs.
+2. Run `2_singphotandmatching.ipynb` with `COSMOS` set to each field from 1 through 4. On this branch, `RUN_PHOTOMETRY = False` explicitly skips SourceXtractor++ and raises an error if a required raw catalog is missing. `OVERWRITE_MATCHING = False` and `OVERWRITE_SDSS = False` load the rebuilt branch products by default; enable those controls to rebuild downstream catalogs. Source extraction requires an explicit `RUN_PHOTOMETRY = True` opt-in.
 3. Use `2.1_singlephotcatalog_visualization.ipynb` for visual inspection of saved production products. Run the per-field depth sections in `2.2_7DTdepthAnalysis.ipynb` before its combined-field depth maps, which consume the saved depth grids.
 4. Run `2.3_numofmatchedbands_digonostics.ipynb` after all four field master catalogs exist. It uses their existing FINALCAT links, writes the unified catalog, and reloads it for subsequent diagnostics.
 
@@ -157,6 +158,12 @@ Band-count histograms, RM distributions, the ≥15-band comparison, SDSS reconci
 In notebooks 2.2 and 2.3, `plot_SourceInfoFromCatalog(..., save_pdf=True)` exports the two-page source report. A PDF path can be passed as `save_pdf="source.pdf"`, and `show=False` suppresses display while saving.
 
 Notebook 2.2 estimates spatial 5-sigma depth from source-masked blank apertures of 3-arcsec diameter on a 10 × 10 grid. Combined depth figures under `output/singlephot/analysis/` select the deepest valid field at each sky position in overlaps. FINALCAT recovery products cover the union of the COSMOS footprints. Blank-aperture sensitivity and the per-band 50%, 80%, and 90% recovery depths are separate measurements.
+
+## Aperture-flag experiment branch
+
+`codex/aperture-flag-ablation` removes only the `aper3_flags == 0` requirement from the production single-band selection. Finite centroids/magnitudes/radii, positive flux radius, magnitude > 5, and the original valid-mask boundary selection remain unchanged. The standard per-field and combined `output/` catalogs now contain this condition, and the downstream analysis and Proposal notebooks retain executed results from those catalogs. SDSS candidate caches are reused only when their original SQL footprints fully contain the unchanged search circles; counterpart assignment rules are unchanged.
+
+Executed copies for each COSMOS field are saved under `output/experiments/aperture_flag_ablation/executed_notebooks/`. Historical master catalogs and pre-promotion diagnostic products are retained under that experiment's `baseline/` directory. These generated products are local-only: changing Git branches does not automatically restore an older set of FITS files. The tracked notebooks preserve the branch's executed tables and figures.
 
 ## Current Status
 
