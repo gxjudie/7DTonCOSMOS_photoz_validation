@@ -1,0 +1,3 @@
+Condition,Exact_sum_h,100s_frame_sum_h,Longest_band,Longest_band_h,N_longer_than_COSMOS1,N_missing_COSMOS1,N_longer_than_COSMOS2,N_missing_COSMOS2,N_longer_than_COSMOS3,N_missing_COSMOS3,N_longer_than_COSMOS4,N_missing_COSMOS4
+Dark / Good,835.19,835.50,m400,676.33,9,0,10,4,18,2,13,4
+Dark / Poor,1073.67,1073.97,m400,865.81,12,0,14,4,18,2,15,4
