@@ -165,6 +165,67 @@ Notebook 2.2 estimates spatial 5-sigma depth from source-masked blank apertures 
 
 Executed copies for each COSMOS field are saved under `output/experiments/aperture_flag_ablation/executed_notebooks/`. Historical master catalogs and pre-promotion diagnostic products are retained under that experiment's `baseline/` directory. These generated products are local-only: changing Git branches does not automatically restore an older set of FITS files. The tracked notebooks preserve the branch's executed tables and figures.
 
+Two comparison subsets per COSMOS field (eight FITS files total) are exported directly under `output/`:
+
+- `COSMOS1_flagcut_removed_newly_20band_sources.fits`: 466 current complete-20-band objects with no shared raw detections belonging to a previously complete-20-band object. This includes 9 objects with no prior 7DT detection (0 to 20 bands); it is not restricted to SDSS galaxies.
+- `COSMOS1_flagcut_removed_new_7DT_sources_matched_to_FINALCAT.fits`: 231 current `matched` objects with no raw detection present in any old 7DT master row in any band, whose same FINALCAT row was previously `finalcat_only`. This excludes existing 7DT objects that merely acquire a new reference association and replacement detections for already matched reference rows.
+
+The first selection uses **all available field bands**, as explicitly requested: COSMOS1=20, COSMOS2=16, COSMOS3=18, COSMOS4=16. The first filenames for fields 2–4 are `COSMOS2_flagcut_removed_newly_full16band_sources.fits`, `COSMOS3_flagcut_removed_newly_full18band_sources.fits`, and `COSMOS4_flagcut_removed_newly_full16band_sources.fits`. The second filename pattern is `COSMOS{field}_flagcut_removed_new_7DT_sources_matched_to_FINALCAT.fits`.
+
+| Field | Available bands | Newly complete available-band objects | Entirely new matched 7DT objects |
+| --- | ---: | ---: | ---: |
+| COSMOS1 | 20 | 466 | 231 |
+| COSMOS2 | 16 | 558 | 427 |
+| COSMOS3 | 18 | 40 | 399 |
+| COSMOS4 | 16 | 498 | 209 |
+
+These are gross entries into each selection, not net before/after differences, and fields are not deduplicated against one another. Both subsets retain the current field master's columns and add baseline identifiers, baseline band counts, added-band lists, and per-band raw `aper3_flags`. Old/new local master IDs must not be joined directly. Shared raw source IDs within the same band define old 7DT counterparts; when multiple old components contribute, the chosen parent has the most shared detections, and the candidate count and IDs are retained. Independent FINALCAT comparisons use `finalcat_idx`. Regenerate all eight files with `Report/2026-10-20/export_flagcut_added_catalogs.py`; `--fields 1` restricts regeneration to COSMOS1. No photometry is performed.
+
+Current output directory roles:
+
+```text
+output/
+  COSMOS1/ ... COSMOS4/  Per-field raw photometry and current branch products
+    singlephot/
+      cat_cosmos*_m*.fits       Reused raw SE++ photometry
+      cosmos*_master_catalog.fits
+      diagnostics/             Matching, positional and source-inspection products
+      analysis/                Recovery, completeness and depth products
+  singlephot/             Current combined-field master, diagnostics and analysis
+  proposal/               Proposal plot assets
+  pdf/                    Requested source-inspection PDFs
+  experiments/aperture_flag_ablation/
+    baseline/             Preserved pre-ablation catalogs and derived products
+    COSMOS1/ ... COSMOS4/  Initial experimental products, copied to canonical paths
+    singlephot/           Initial experimental combined products
+    comparison/           Before/after fraction and depth comparisons
+    statistical_analysis/ Paired statistical audits and flag/galaxy count tables
+    executed_notebooks/   Executed per-field notebook copies
+    pre_refresh_notebooks/ Notebook backups before canonical result refresh
+```
+
+The experiment directory grew because results were initially isolated for comparison, then copied into the standard paths when the branch's full notebooks were refreshed. Its initial experimental catalogs/figures therefore overlap the current products; they are not the authoritative location for later refreshed depths. The `baseline/` tree remains the historical comparison source. Raw SE++ catalogs and original boundary masks were not regenerated.
+
+### Proposal figure and pointing updates (2026-10-22)
+
+Notebook `0_preReaserch.ipynb` calls the all-band common valid region an
+**intersection**: finite science and positive finite weight are required in
+every active band, followed by a 50-pixel boundary exclusion.
+
+The numbered proposal notebook retains the executed single-pointing FINALCAT
+counts at the fixed center (150.12, 2.28) deg and 1.34 x 0.90 deg coordinate
+spans: 5,025 of 6,991 sources with `0 < RM < 21` (71.88%), and 3,230 of 4,481
+with `0 < RM < 20.5` (72.08%). Its table also distinguishes fractions of all
+126,280 FINALCAT rows. The unnumbered local Proposal notebook has the same
+counting section; only its numbered counterpart is versioned.
+
+`Report/2026-10-22/recreate_figure1_baseline.py` recreates Figure 1 from the
+preserved pre-ablation catalog and depth CSVs. It checks all cumulative counts
+against the archived baseline and writes a 600-dpi PNG plus a PDF with embedded
+TrueType fonts. Both depth panels use white backgrounds and black annotations,
+with the original depth color scale. Generated figures remain local under
+`Report/7DT Observation Proposal/Figure1_2026-10-22_baseline_flagcut/`.
+
 ## Current Status
 
 This project is not complete.

@@ -1,0 +1,2 @@
+Caption revision for the right panel: Replace "The black area indicates there is no image in there." with "The hatched area indicates that no image is available in this band."
+Hatched areas indicate an unavailable band; dotted areas indicate cells without a valid depth estimate.

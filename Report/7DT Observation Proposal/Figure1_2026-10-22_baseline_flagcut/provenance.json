@@ -1,0 +1,21 @@
+{
+  "selection": "Archived pre-ablation results, retaining aper3_flags == 0",
+  "recipe": "Archived Proposal.ipynb cells 37-39, with display/output changes only",
+  "png_dpi": 600,
+  "pdf": "Vector curves, axes, hatches and annotations; 600-dpi raster depth layer; embedded TrueType fonts",
+  "display_change": "Both depth panels use light backgrounds and black annotations; viridis unchanged",
+  "counts_verified": "Exact equality with all columns of archived cumulative-count CSV",
+  "input_sha256": {
+    "output/experiments/aperture_flag_ablation/baseline/full_products/singlephot/master_catalog_MatchedWithFianlcat_OverallCosmosField.fits": "0a1347f4b2e0837e523f2adb3047df59f5356e02f8eb52168828c85b65520dd7",
+    "COSMOS_data/COSMOS_finalcat.fits": "8f7e127c649ac89865890a998cf65221e9d529abf28090f2b9d7fa9154482583",
+    "output/experiments/aperture_flag_ablation/baseline/full_products/COSMOS1/singlephot/analysis/cosmos1_7dt_depth_5sigma_3arcsec.csv": "a7e7df8d3ed29ee1a9b9bf9acf7b6ea0b9a82308853903f8a6144cd52fd221ef",
+    "output/experiments/aperture_flag_ablation/baseline/full_products/COSMOS2/singlephot/analysis/cosmos2_7dt_depth_5sigma_3arcsec.csv": "03b50cbdc616505a95d32429f4842ec81318a97fbceb4cf0f044f6d4b130deb3",
+    "output/experiments/aperture_flag_ablation/baseline/full_products/COSMOS3/singlephot/analysis/cosmos3_7dt_depth_5sigma_3arcsec.csv": "ce3b702f9ba663e65a1adeb157263ac4b004761215a7755369c981447485557c",
+    "output/experiments/aperture_flag_ablation/baseline/full_products/COSMOS4/singlephot/analysis/cosmos4_7dt_depth_5sigma_3arcsec.csv": "93e5cce2170d858ad5564ca7349b821daf138fab3afe79b5441551b91981fb67",
+    "output/experiments/aperture_flag_ablation/baseline/Notebooks/Proposal.ipynb": "3a0181a6c9e088c7b3d36823e9046f01e72f02ec06c5e3c312040c39c53c377a"
+  },
+  "outputs": [
+    "Report/7DT Observation Proposal/Figure1_2026-10-22_baseline_flagcut/figure1_baseline_flagcut_depth_white_600dpi.png",
+    "Report/7DT Observation Proposal/Figure1_2026-10-22_baseline_flagcut/figure1_baseline_flagcut_depth_white_600dpi.pdf"
+  ]
+}
