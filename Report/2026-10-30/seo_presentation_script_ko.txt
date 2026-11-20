@@ -1,0 +1,549 @@
+seo_presentation.pdf — 영어·한국어 발표 대본
+2026-10-30
+
+사용 안내
+- PDF의 실제 페이지 순서에 맞춘 11페이지 대본이다.
+- [발표 동작]은 화면에서 짚을 위치이며 읽지 않는다.
+- [발표자 메모]는 슬라이드 문구 확인용이며 읽지 않는다.
+- 구체적인 설정과 수치는 화면을 통해 전달하고, 말로는 측정의 목적과 결과의 의미를 연결한다.
+
+- 각 페이지의 [English script] 아래에 쉬운 영어 번역을, [한국어 원문] 아래에 수정한 한글 원문을 배치했다.
+- 영어의 괄호 한 묶음은 하나의 의미 단위다. 괄호 사이에서는 짧게 쉬고, 마침표에서는 더 길게 쉰다.
+- 모든 괄호 경계에서 숨을 들이쉴 필요는 없다. 괄호와 발표 동작·메모는 소리 내어 읽지 않는다.
+
+======================================================================
+[page 1] Progress Report
+Depth and Completeness of 7DT
+
+[English script]
+
+(Hello.)
+(Today, I would like to share what I found)
+(while preparing the 7DT proposal.)
+
+[한국어 원문]
+
+안녕하세요. 이번에는 7DT proposal을 준비하면서 알아냈던 내용에 대해서 발표하고자 합니다.
+
+======================================================================
+[page 2] Contents
+
+[English script]
+
+(While preparing the 7DT proposal,)
+(I studied two aspects of the 7DT images we received:)
+(depth and completeness.)
+(I found some issues in the data)
+(that need more analysis.)
+
+(First, I will explain)
+(how I defined and measured the depth of the 7DT COSMOS images.)
+(I measured noise in blank sky regions)
+(and made maps of depth across the images.)
+(I will show the problems that appeared in these maps.)
+(Then, I will estimate the limiting magnitude)
+(from the magnitude–S/N relation of detected sources)
+(and compare the two results.)
+
+(Finally, I will show the recovery fraction)
+(relative to the COSMOS reference catalog.)
+(I will also explain)
+(what I plan to study next about completeness.)
+(Today's main topic is depth.)
+(I will introduce completeness as the next step.)
+
+[한국어 원문]
+
+7DT proposal을 준비하면서, 제공받은 7DT image에 대해서 크게 두 부분을 알게 되었습니다. Depth와 Completeness에 대해서 조사를 하게 되었고, 데이터에 추후에 분석이 더 필요한 부분이 있음을 알게 되었습니다.
+
+오늘 발표에서는 먼저 7DT COSMOS 영상의 depth를 어떻게 정의하고 측정했는지 설명하겠습니다. 빈 하늘에서 잡음을 측정해 공간별 depth map을 만들고, 지도에서 드러난 관측 데이터의 문제를 살펴보겠습니다. 이어서 검출 천체의 magnitude–S/N 관계에서도 한계등급을 구해 두 결과를 비교하겠습니다.
+
+마지막에는 COSMOS reference catalog와 비교한 recovery fraction을 보여 드리고, completeness와 관련해 다음 단계에서 확인할 문제를 말씀드리겠습니다. 이번 발표의 중심은 depth 분석이며, completeness는 후속 연구 과제로 소개하겠습니다.
+
+======================================================================
+[page 3] Depth Definition and Sky Measurement
+
+[English script]
+
+(First, I will explain)
+(how I define depth in this analysis.)
+(I define depth as the limiting magnitude)
+(at which a source can be detected)
+(with an S/N of at least 5.)
+
+(To find this limit,)
+(we first need to know the noise)
+(in the aperture used to measure a source.)
+(For the first method,)
+(I placed apertures with a diameter of 3 arcseconds)
+(in blank sky regions.)
+(I then measured the scatter in their fluxes.)
+
+(Even in blank sky,)
+(the measured flux is not exactly the same in every aperture.)
+(I used the width of this distribution)
+(as the aperture noise.)
+(I set the detection limit)
+(at five times this noise.)
+(Converting this flux limit to a magnitude)
+(gives the depth.)
+
+(So, the first step is to decide)
+(which regions we can use as blank sky,)
+(without light from sources.)
+
+[한국어 원문]
+
+먼저 이번 분석에서 사용하는 depth의 정의입니다. Depth는 천체를 S/N이 5 이상인 수준으로 검출할 수 있는 한계등급으로 정했습니다.
+
+이 한계등급을 구하려면 먼저 천체를 측정하는 aperture 안에서 잡음이 얼마나 발생하는지 알아야 합니다. 첫 번째 방법으로는 천체가 없는 하늘에 지름 3 arcsec의 aperture를 놓고, 그 안에서 측정되는 flux의 산포를 이용했습니다.
+
+빈 하늘이라고 해도 aperture마다 측정되는 flux가 정확히 같지는 않습니다. 이 변동의 폭을 aperture 잡음으로 보고, 그 잡음의 다섯 배에 해당하는 flux를 검출 한계로 삼았습니다. 이를 magnitude로 변환하면 처음에 정의한 depth를 얻을 수 있습니다.
+
+따라서 이 방법에서 먼저 정해야 하는 것은, 어떤 위치를 천체의 빛이 섞이지 않은 blank sky로 사용할 것인지입니다.
+
+======================================================================
+[page 4] Defining Blank Sky
+
+[English script]
+
+[발표 동작: 아래쪽 원본 영상과 마스킹 후 영상을 차례로 짚는다.]
+
+(These images show the same region of COSMOS1 in m650,)
+(before and after masking.)
+(The original image is on the left.)
+(The orange areas on the right)
+(were excluded from the measurements.)
+
+(First, I used the source positions)
+(detected by SourceXtractor++ in each band)
+(and masked the areas around them.)
+(I included all detections with valid positions.)
+
+(I set the mask size)
+(using a representative source size for each field and band.)
+(I used five times the sigma of the Gaussian PSF profile)
+(that I had estimated earlier for each band)
+(as the radius of the circular mask.)
+
+(Then, I measured blank-aperture fluxes)
+(in the regions outside these source masks.)
+(I only used positions)
+(where the whole aperture was inside the valid image area)
+(and did not overlap a source mask.)
+
+[발표 동작: 오른쪽 위의 flux 히스토그램을 짚는다.]
+
+(This histogram shows the distribution of these fluxes.)
+(Some remaining source light or other outliers)
+(may still be present after masking.)
+(So, I applied sigma clipping)
+(to the aperture fluxes.)
+(I used the standard deviation of the remaining values)
+(as the noise.)
+
+(This histogram combines fluxes from several spatial regions)
+(as an example.)
+(For the actual depth calculation,)
+(I measured the noise separately in each region.)
+
+[한국어 원문]
+
+[발표 동작: 아래쪽 원본 영상과 마스킹 후 영상을 차례로 짚는다.]
+
+이 그림은 COSMOS1 m650의 같은 영역을 마스킹 전후로 비교한 것입니다. 왼쪽은 원본 영상이고, 오른쪽의 주황색 부분이 측정에서 제외한 영역입니다.
+
+먼저 각 밴드에서 SourceXtractor++로 검출한 천체의 위치를 가져와 주변을 가렸습니다. 마스킹에는 위치가 유효한 검출 전체를 사용했습니다. 
+
+마스크의 크기는 필드와 밴드별 대표 천체 크기로 정했습니다. 이전에 구했던 각 밴드의 Gaussian profile PSF sigma의 다섯 배를 원형 마스크 반경으로 사용했습니다.
+
+이렇게 천체 주변을 제외한 영역에서 blank aperture의 flux를 측정했습니다. Aperture 전체가 유효한 영상 영역 안에 있고, 천체 마스크와 겹치지 않는 위치만 사용했습니다.
+
+[발표 동작: 오른쪽 위의 flux 히스토그램을 짚는다.]
+
+그 결과를 분포로 나타내면 이 히스토그램처럼 보입니다. 마스킹 후에도 천체의 잔여 신호나 다른 이상치가 일부 섞일 수 있으므로, aperture flux에 sigma clipping을 적용한 뒤 남은 값의 표준편차를 잡음으로 사용했습니다. 
+
+이 히스토그램은 여러 공간 구간의 flux를 모아 보여 주는 예시입니다. 실제 depth 계산에서는 각 공간 구간의 잡음을 별도로 구했습니다.
+
+
+
+======================================================================
+[page 5] Evaluate the Limiting Magnitude, Make 2D Depth Map
+
+[English script]
+
+(If we measure the noise over the whole image at once,)
+(we get one representative limiting magnitude for the field.)
+(But sensitivity can change with position.)
+(So, I divided each image into spatial cells)
+(and repeated the measurement in each cell.)
+
+(I divided both the horizontal and vertical directions)
+(into ten parts.)
+(In each cell,)
+(I selected blank apertures that did not overlap each other.)
+(I estimated the noise)
+(only when there were enough apertures.)
+(Then, I applied the detection threshold to the aperture noise,)
+(as shown in the equation.)
+(I converted the flux limit to a magnitude)
+(using the zero point provided by the 7DT team)
+(for this aperture.)
+
+[발표 동작: 오른쪽 m600 map의 색 변화와 빈 영역을 짚는다.]
+
+(This is the result for COSMOS1 in m600.)
+(Even within one field in the same band,)
+(the limiting magnitude changes a little with position.)
+(A higher value on the color scale)
+(means that fainter sources can be measured there.)
+(I left cells empty)
+(when I could not get a valid measurement.)
+
+(This lets us see both the average sensitivity of the image)
+(and which regions are deeper or shallower.)
+
+[Speaker note — do not read aloud]
+The slide says “Dividing image to 20 bins,” but the code uses a 10 × 10 grid, or 100 spatial cells. There are 20 bands. Update this slide text before the talk.
+
+[한국어 원문]
+
+앞에서 설명한 잡음 측정을 영상 전체에서 한 번만 하면 필드의 대표적인 한계등급 하나를 얻을 수 있습니다. 하지만 감도가 위치에 따라 달라질 수 있기 때문에, 이번에는 각 영상을 여러 공간 셀로 나누고 같은 측정을 셀마다 반복했습니다.
+
+구체적으로는 가로와 세로를 각각 열 구간으로 나눴습니다. 각 셀에서 서로 겹치지 않는 blank aperture를 선택하고, 충분한 수가 확보된 경우에만 잡음을 추정했습니다. 그런 다음 화면의 식처럼 aperture 잡음에 검출 기준을 적용하고, 7DT 팀에서 제공한 해당 aperture의 zero point를 이용해 한계등급으로 변환했습니다.
+
+[발표 동작: 오른쪽 m600 map의 색 변화와 빈 영역을 짚는다.]
+
+오른쪽은 COSMOS1 m600의 결과입니다. 같은 밴드의 한 필드 안에서도 위치에 따라 한계등급이 조금씩 달라지는 것을 볼 수 있습니다. 색이 나타내는 값이 클수록 더 어두운 천체까지 측정할 수 있는 영역입니다. 유효한 측정값을 얻지 못한 셀은 빈 영역으로 남겼습니다.
+
+이렇게 하면 영상 전체의 평균적인 감도뿐 아니라, 어느 위치가 상대적으로 깊고 얕은지도 함께 확인할 수 있습니다.
+
+[발표자 메모 — 읽지 않음]
+슬라이드의 “Dividing image to 20 bins”는 실제 코드와 다르다.
+공간 분할은 10 × 10 = 100개 셀이며, 20은 전체 밴드 수다. 발표 전 슬라이드 문구 수정 필요.
+
+======================================================================
+[page 6] 2D Depth Map of Overall Fields
+
+[English script]
+
+(These are the results)
+(after applying the same method to all fields and bands.)
+(Each panel shows one band.)
+(I placed the results from the four fields)
+(on the same sky coordinates.)
+(All panels use the same color scale,)
+(so we can compare sensitivity across bands.)
+(Gray areas have no valid depth value.)
+
+(We can see three main problems in these maps.)
+
+[발표 동작: 강조된 m450 패널을 짚는다.]
+
+(The first is image quality.)
+(In m450,)
+(one region is much shallower than the surrounding regions.)
+(We need to look at the actual image)
+(to understand this.)
+
+[발표 동작: m650 패널을 짚는다.]
+
+(The second is missing coverage.)
+(Some fields have no usable image)
+(in a given band.)
+(We can clearly see this in m650.)
+
+[발표 동작: m850 패널을 짚는다.]
+
+(The third is uneven depth.)
+(Even when images are available,)
+(the depth is not the same in every field.)
+(We can see this difference in m850.)
+
+(On the next slide,)
+(I will explain these three problems)
+(using the actual images and exposure times.)
+
+[한국어 원문]
+
+앞의 방법을 모든 필드와 밴드에 적용한 결과입니다. 각 패널이 한 밴드이고, 네 필드의 결과를 같은 하늘 좌표 위에 표시했습니다. 모든 패널에 같은 색 척도를 사용했으므로 밴드 사이에서도 감도 수준을 비교할 수 있습니다. 사용할 depth 값이 없는 영역은 회색으로 표시했습니다.
+
+이 지도에서는 크게 세 가지 문제를 볼 수 있습니다.
+
+[발표 동작: 강조된 m450 패널을 짚는다.]
+
+첫째는 영상 품질 문제입니다. m450에서는 일부 영역이 주변과 비교해 매우 얕게 측정됐습니다. 이 경우는 실제 영상을 함께 확인할 필요가 있습니다.
+
+[발표 동작: m650 패널을 짚는다.]
+
+둘째는 사용할 영상이 없는 필드가 있어, 해당 밴드의 공간적 coverage가 비어 있다는 점입니다. m650에서 이 차이가 뚜렷하게 보입니다.
+
+[발표 동작: m850 패널을 짚는다.]
+
+셋째는 영상이 있더라도 필드별 depth가 균일하지 않다는 점입니다. m850에서는 필드 사이의 감도 차이가 보입니다.
+
+다음 페이지에서 이 세 가지를 실제 영상과 노출시간을 함께 보면서 설명하겠습니다.
+
+======================================================================
+[page 7] Problems in the Overall Depth Maps
+
+[English script]
+
+[발표 동작: 왼쪽 m450 map과 그 아래 실제 영상을 짚는다.]
+
+(First, this is Field 3 in m450.)
+(In the enlarged image,)
+(the sources do not have their normal shapes.)
+(Instead, they are spread out into rings.)
+(The image clearly has a quality problem,)
+(so I decided to exclude it from the study.)
+(The map shown here is the earlier result,)
+(before this image was excluded.)
+
+[발표 동작: 가운데 m650 map을 짚는다.]
+
+(The middle map shows m650.)
+(Usable images are available for only some fields,)
+(so I cannot measure the depth in the other regions)
+(for this band.)
+(This means that the available coverage of the same sky area)
+(differs between bands.)
+
+[발표 동작: 오른쪽 m850 map의 필드별 노출시간과 색을 짚는다.]
+
+(In m850,)
+(the exposure time is different in each field.)
+(Fields with shorter exposures are relatively shallower.)
+(These differences in exposure time)
+(can contribute to the uneven sensitivity across fields.)
+
+(So, the current data have image-quality problems,)
+(gaps in some bands,)
+(and uneven depth.)
+(I connected these problems)
+(to the need for new observations in the 7DT Proposal.)
+(These observations would help fill the gaps)
+(and provide more uniform data.)
+
+(Next, I will check)
+(how well the depth measured from the sky agrees)
+(with the depth estimated from detected sources.)
+
+[한국어 원문]
+
+[발표 동작: 왼쪽 m450 map과 그 아래 실제 영상을 짚는다.]
+
+먼저 m450의 Field 3입니다. 실제 영상을 확대해 보면 천체가 정상적인 형태로 모이지 않고, 고리 형태로 퍼져 있는 모습을 확인할 수 있습니다. 이 영상은 품질 문제가 명백하므로 연구에서 제외하기로 했습니다. 여기 보이는 지도는 제외 전의 기존 측정 결과입니다.
+
+[발표 동작: 가운데 m650 map을 짚는다.]
+
+가운데는 m650입니다. 현재 분석에 사용할 수 있는 영상이 일부 필드에만 있어서, 나머지 영역에는 이 밴드의 depth를 측정할 수 없습니다. 같은 하늘 영역이라도 밴드에 따라 확보된 관측 범위가 다르다는 뜻입니다.
+
+[발표 동작: 오른쪽 m850 map의 필드별 노출시간과 색을 짚는다.]
+
+오른쪽 m850에서는 각 필드의 노출시간이 서로 다릅니다. 짧게 노출된 필드에서 상대적으로 얕은 depth가 나타나며, 이러한 노출시간 차이는 필드 간 감도 불균일에 기여하는 요인으로 볼 수 있습니다.
+
+이처럼 현재 데이터에는 영상 품질 문제, 밴드별 공백, 그리고 깊이의 불균일이 함께 존재합니다. 이런 영역의 관측을 보완하고 더 균일한 데이터를 확보하기 위한 재관측 필요성을 7DT Proposal과 연결했습니다.
+
+이제는 지도에서 보이는 관측 조건의 차이와 별도로, Sky에서 구한 depth의 수준이 천체 측정 결과와 얼마나 맞는지 확인하겠습니다.
+
+======================================================================
+[page 8] Comparing the Depth Map with Detected Sources
+
+[English script]
+
+(Here, I estimated the limiting magnitude)
+(from the magnitude–S/N relation of detected sources)
+(and compared it with the sky-based result.)
+(This example is for m625 in Field 4,)
+(as marked on the map.)
+
+[발표 동작: 왼쪽 지도에서 강조한 필드와 오른쪽 mag–S/N 플롯을 연결해서 짚는다.]
+
+(On the left,)
+(I show the sky-based limiting magnitude)
+(averaged over the valid spatial cells in this field.)
+(The plot on the right shows magnitude and S/N)
+(for sources detected in the same field.)
+
+(There is some scatter among individual sources.)
+(So, I divided the magnitudes into equal-width bins)
+(and calculated the median S/N in each bin.)
+(I only used bins with enough sources.)
+(Then, I used linear interpolation)
+(to find where the median relation crosses S/N = 5.)
+(This gives the source-based limiting magnitude,)
+(shown by the orange vertical line.)
+
+(The source-based estimate is deeper)
+(than the sky-based estimate.)
+(Below the plot,)
+(I also show what this magnitude difference means)
+(as a difference in limiting flux.)
+(The two methods give similar sensitivity levels,)
+(but they do not give exactly the same value.)
+
+(Next, I will check)
+(whether this difference occurs only in this example)
+(or also appears in other bands and fields.)
+
+[한국어 원문]
+
+이번에는 검출 천체의 magnitude–S/N 관계에서 한계등급을 구하고, Sky 기반 결과와 비교했습니다. 예시는 m625이며, 지도에서 표시한 Field 4의 값입니다.
+
+[발표 동작: 왼쪽 지도에서 강조한 필드와 오른쪽 mag–S/N 플롯을 연결해서 짚는다.]
+
+왼쪽에는 이 필드의 유효한 공간 셀들을 평균한 Sky 기반 한계등급을 표시했습니다. 오른쪽은 같은 필드에서 검출한 천체들의 magnitude와 S/N 관계입니다. 
+
+개별 천체에는 산포가 있으므로, 등급을 일정한 구간으로 나눠 S/N 중앙값을 구했습니다. 천체 수가 충분한 구간만 사용하고, 중앙값 관계가 S/N 5를 가로지르는 위치를 선형 보간해 source 기반 한계등급을 얻었습니다. 그림의 주황색 수직선이 그 결과입니다.
+
+화면의 두 값을 비교하면 source 기반 추정이 Sky 기반 추정보다 더 깊게 나옵니다. 이 등급 차이를 한계 flux로 환산한 크기도 아래에 표시했습니다. 두 방법이 비슷한 감도 수준을 주기는 하지만, 완전히 같은 값은 아니라는 것을 확인할 수 있습니다.
+
+그렇다면 이런 차이가 이 사례에서만 나타나는지, 다른 밴드와 필드에서도 비슷한 방향으로 나타나는지 살펴보겠습니다.
+
+======================================================================
+[page 9] Examples of Sky–Source Depth Differences
+
+[English script]
+
+(Here, I compared the two methods in other bands.)
+(The horizontal axis of each plot shows the COSMOS fields.)
+(The blue bars show the sky-based limiting magnitudes,)
+(and the orange bars show the source-based limiting magnitudes.)
+
+(As before,)
+(each sky value is the mean limiting magnitude)
+(of the valid spatial cells.)
+(The error bars show the scatter between these cells.)
+
+[발표 동작: 세 밴드에서 파란 막대와 주황 막대의 꼭대기를 비교한다.]
+
+(The two methods generally give similar sensitivity levels.)
+(But wherever both estimates are available,)
+(the sky-based value is shallower.)
+(The size of the difference changes with field and band.)
+(The gap is larger for COSMOS3 in m475)
+(than in the other examples.)
+
+(So, there are two things to note here.)
+(The estimates are fairly close,)
+(but the sky-based depth is consistently shallower.)
+(I then considered)
+(what could cause this difference.)
+
+[한국어 원문]
+
+여기서는 다른 밴드에서도 두 방법을 비교했습니다. 각 그래프의 가로축은 COSMOS 필드이고, 파란 막대가 Sky 기반 한계등급, 주황 막대가 source 기반 한계등급입니다.
+
+Sky 값은 앞에서와 같이 유효한 공간 셀들의 한계등급을 평균한 값입니다. 오차막대는 셀 사이의 공간적 산포를 나타냅니다.
+
+[발표 동작: 세 밴드에서 파란 막대와 주황 막대의 꼭대기를 비교한다.]
+
+두 방법은 전반적으로 비슷한 감도 수준을 보여 주지만, 비교 가능한 조합에서는 Sky 기반 값이 더 얕게 나오는 방향성이 반복됩니다. 차이의 크기는 필드와 밴드에 따라 다르며, m475의 COSMOS3에서는 다른 사례보다 간격이 더 크게 나타납니다.
+
+따라서 여기서 주목한 것은 두 추정값이 어느 정도 비슷하다는 점과 함께, Sky 쪽이 상대적으로 얕게 나오는 차이가 같은 방향으로 남는다는 점입니다. 다음으로는 이 차이를 만들 수 있는 원인을 생각해 봤습니다.
+
+======================================================================
+[page 10] Discussions
+
+[English script]
+
+(I am considering two possible reasons for this difference.)
+
+(The first is remaining source light)
+(in the sky measurements.)
+(Even after masking the source centers,)
+(light from the outer parts of bright or saturated stars,)
+(or other artifacts,)
+(may remain.)
+(This light can increase the scatter)
+(in blank-aperture fluxes.)
+(We would then estimate more noise,)
+(which would make the sky-based limiting magnitude shallower.)
+
+(The second is that the S/N of detected sources)
+(may be estimated too high.)
+(I calculated the source depth)
+(using magnitude errors from SourceXtractor++.)
+(If these errors are estimated too low,)
+(the S/N will be too high,)
+(and the limiting magnitude will be too deep.)
+
+(Both are possible explanations.)
+(I have not yet checked)
+(which has the larger effect.)
+(To get another estimate for comparison,)
+(I tried to use the S/N predicted by the 7DT Exposure Time Calculator.)
+
+[발표 동작: 오른쪽 ETC 오류 화면을 짚는다.]
+
+(However, I could not get a result)
+(because of the error shown here.)
+(Once the calculator works,)
+(I plan to compare the results)
+(using matching observing conditions and measurement settings.)
+(This will help me check the remaining difference)
+(between the two depth estimates.)
+
+[한국어 원문]
+
+앞에서 확인한 차이에 대해서는 현재 두 가지 가능성을 생각하고 있습니다.
+
+첫 번째는 Sky 측정에 천체의 잔여 신호가 들어가는 경우입니다. 천체 중심을 마스킹하더라도 밝거나 포화된 별의 바깥 부분이나 artifact가 남을 수 있습니다. 이런 신호가 blank-aperture flux의 산포를 키우면 잡음을 크게 추정하게 되고, 결과적으로 Sky 기반 한계등급은 얕게 나올 수 있습니다.
+
+두 번째는 천체 측정에서 S/N이 높게 추정되는 경우입니다. Source depth는 SourceXtractor++의 등급 오차를 이용해 계산했기 때문에, 이 오차가 실제보다 작게 추정된다면 S/N은 높아지고 한계등급도 더 깊게 나올 수 있습니다.
+
+두 가지 모두 현재는 가능한 설명이며, 어느 쪽의 영향이 큰지는 아직 확인하지 못했습니다. 따라서 추가적인 비교 기준으로 7DT Exposure Time Calculator가 예측하는 S/N과 비교하려고 했습니다.
+
+[발표 동작: 오른쪽 ETC 오류 화면을 짚는다.]
+
+다만 현재는 화면과 같은 실행 오류로 계산 결과를 얻지 못한 상태입니다. 사용할 수 있게 되면 관측 조건과 측정 기준을 맞춰 비교하고, 두 depth 추정값 사이에 남는 차이를 더 점검할 계획입니다.
+
+======================================================================
+[page 11] Future Objectives
+
+[English script]
+
+(There are two things I plan to check next.)
+
+(First, as I mentioned,)
+(I will compare the results with predictions from the 7DT Exposure Time Calculator)
+(to study the difference between the sky-based and source-based depths.)
+
+(Second, I will study the recovery fraction)
+(relative to the COSMOS reference catalog.)
+(Now that I have measured the limiting magnitude,)
+(I can check how many sources brighter than this limit)
+(are actually detected.)
+
+[발표 동작: 오른쪽 그림의 위쪽 천체 수 분포와 아래쪽 recovery fraction을 차례로 짚는다.]
+
+(In the upper panel,)
+(the black dashed line shows the number of sources)
+(in the COSMOS reference sample.)
+(The colored lines show the number detected)
+(in each 7DT band.)
+(The lower panel shows the fraction of reference sources)
+(that were detected.)
+(This fraction is low)
+(even for sources brighter than the limiting magnitude.)
+
+(So, I plan to investigate)
+(what causes this low recovery fraction.)
+
+(Thank you.)
+
+[한국어 원문]
+
+앞으로 확인할 내용은 두 가지입니다.
+
+먼저 앞에서 말씀드린 것처럼 7DT Exposure Time Calculator의 예측과 비교해, Sky와 source 기반 depth 사이의 차이를 점검하겠습니다.
+
+두 번째는 COSMOS reference catalog 대비 recovery fraction입니다. 앞에서 한계등급을 측정했으므로, 이제 그보다 밝은 천체들이 실제로 얼마나 검출되고 있는지를 확인할 수 있습니다.
+
+[발표 동작: 오른쪽 그림의 위쪽 천체 수 분포와 아래쪽 recovery fraction을 차례로 짚는다.]
+
+위쪽 그림에서 검은 점선은 COSMOS reference sample의 천체 수이고, 색깔 선들은 각 7DT 밴드에서 검출한 천체 수입니다. 아래쪽은 reference sample 대비 검출한 비율입니다. 한계등급보다 밝은 쪽에서도 검출 비율이 낮습니다.
+그러므로, 낮은 recovery fraction이 어디에서 발생하는지 조사할 계획입니다.
+
+감사합니다.

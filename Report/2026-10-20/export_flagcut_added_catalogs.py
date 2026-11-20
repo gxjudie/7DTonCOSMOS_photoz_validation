@@ -26,7 +26,7 @@ def export_field(field):
     """Retain the same object-identity and selection rules in every field."""
     warnings.filterwarnings('ignore',category=UnitsWarning)
     current_path = ROOT/f'output/COSMOS{field}/singlephot/cosmos{field}_master_catalog.fits'
-    baseline_path = EXP/f'baseline/output/COSMOS{field}/singlephot/cosmos{field}_master_catalog.fits'
+    baseline_path = ROOT/f'output/archive/cosmos{field}_master_catalog.fits'
     before, after = Table.read(baseline_path), Table.read(current_path)
     active_bands = tuple(after.meta['ACTBANDS'].split(','))
     assert active_bands == tuple(before.meta['ACTBANDS'].split(','))

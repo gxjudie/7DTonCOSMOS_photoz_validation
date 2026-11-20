@@ -51,7 +51,7 @@ def main():
     output=EXPERIMENT/'comparison'
     output.mkdir(parents=True,exist_ok=True)
     samples={
-        'baseline':selected_columns(EXPERIMENT/'baseline/output/singlephot'/FILENAME),
+        'baseline':selected_columns(ROOT/'output/archive'/FILENAME),
         # Once promoted, use the current branch's canonical combined product.
         'no_flag_cut':selected_columns((ROOT/'output/singlephot'/FILENAME)
             if (EXPERIMENT/'promotion.json').exists() else EXPERIMENT/'singlephot'/FILENAME),

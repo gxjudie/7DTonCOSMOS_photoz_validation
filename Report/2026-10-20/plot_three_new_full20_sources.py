@@ -25,7 +25,7 @@ BANDS = tuple(f'm{w}' for w in range(400,900,25))
 
 def main():
     warnings.filterwarnings('ignore',category=UnitsWarning)
-    before = Table.read(EXP/'baseline/output/COSMOS1/singlephot/cosmos1_master_catalog.fits')
+    before = Table.read(ROOT/'output/archive/cosmos1_master_catalog.fits')
     after = Table.read(ROOT/'output/COSMOS1/singlephot/cosmos1_master_catalog.fits')
     flags_table = Table.read(EXP/'statistical_analysis/cosmos1_new_strict_full20_galaxy_flags.csv')
     spec = importlib.util.spec_from_file_location('sourceinfo_report',ROOT/'Notebooks/sourceinfo_report.py')

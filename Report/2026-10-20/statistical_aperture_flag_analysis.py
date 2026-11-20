@@ -19,6 +19,8 @@ import matplotlib.pyplot as plt
 ROOT = Path(__file__).resolve().parents[2]
 EXP = ROOT / 'output/experiments/aperture_flag_ablation'
 OUT = EXP / 'statistical_analysis'
+ARCHIVE = ROOT / 'output/archive'
+HISTORICAL_SUMMARIES = EXP / 'statistical_analysis'
 BANDS = tuple(f'm{w}' for w in range(400, 900, 25))
 
 
@@ -33,7 +35,7 @@ def save(rows, name):
     return table
 
 
-def main():
+def main(*, save_figures=True):
     # Raw catalogs carry a legacy nonstandard unit string. Numeric values used
     # here do not depend on that unit, so suppress only this parser warning.
     warnings.filterwarnings('ignore', category=UnitsWarning)
@@ -46,7 +48,7 @@ def main():
     rm = values(reference, 'RM')
     valid = np.isfinite(rm) & (rm > 0) & (rm < 50)
     bright = valid & (rm <= 21)
-    samples = [helper.selected_columns(EXP / 'baseline/output/singlephot' / filename),
+    samples = [helper.selected_columns(ARCHIVE / filename),
                helper.selected_columns(ROOT / 'output/singlephot' / filename)]
     counts = []
     for sample in samples:
@@ -57,14 +59,17 @@ def main():
         counts.append(n)
     before, after = counts
     delta = after - before
-    coverage = Table.read(ROOT / 'output/singlephot/diagnostics/cosmos1-4_7dt_finalcat_matching_coverage_catalog.fits')
+    # Each field master includes all FINALCAT rows in its valid footprint,
+    # including finalcat_only rows. Reconstruct coverage by FINALCAT row index,
+    # not by the non-unique FINALCAT string ID or the field-local master ID.
     available = np.zeros((len(reference), 20), dtype=bool)
     for f in range(1, 5):
-        meta = Table.read(ROOT / f'output/COSMOS{f}/singlephot/cosmos{f}_master_catalog.fits').meta
-        active = np.array([b in meta['ACTBANDS'].split(',') for b in BANDS])
-        # Coverage is source-level footprint eligibility, not a guarantee that
-        # each band has usable pixels or sufficient depth at that position.
-        available[values(coverage, 'finalcat_idx', -1)] |= values(coverage, f'COSMOS{f}_in_coverage', False)[:, None] & active
+        field_master = Table.read(ROOT / f'output/COSMOS{f}/singlephot/cosmos{f}_master_catalog.fits')
+        active = np.array([b in field_master.meta['ACTBANDS'].split(',') for b in BANDS])
+        present = values(field_master, 'has_finalcat', False).astype(bool)
+        indices = values(field_master, 'finalcat_idx', -1)[present].astype(int)
+        assert np.all((indices >= 0) & (indices < len(reference)))
+        available[indices] |= active
     n_available = available.sum(axis=1)
     assert np.all(n_available[after == 20] == 20)
     populations = []
@@ -96,8 +101,7 @@ def main():
 
     positional, radius, raw_quality, assignments, selected_types = [], [], [], [], []
     for f in range(1,5):
-        directories = [EXP/f'baseline/output/COSMOS{f}/singlephot', ROOT/f'output/COSMOS{f}/singlephot']
-        diagnostics = [EXP/f'baseline/full_products/COSMOS{f}/singlephot/diagnostics', directories[1]/'diagnostics']
+        directories = [ARCHIVE, ROOT/f'output/COSMOS{f}/singlephot']
         masters = [Table.read(d/f'cosmos{f}_master_catalog.fits') for d in directories]
         matched = []
         for t in masters:
@@ -134,52 +138,29 @@ def main():
             max_abs_mag_change_same_raw=float(np.nanmax(np.abs(mag_delta))),
             max_abs_magerr_change_same_raw=float(np.nanmax(np.abs(err_delta)))))
 
-        # Use the stable m600 raw detection as an object anchor across runs.
-        # Require every active-band source ID to agree for the paired control;
-        # changed memberships are reported separately and never called controls.
-        grouped = []
-        for diag in diagnostics:
-            t = Table.read(diag/f'cosmos{f}_7dt_positional_quality_fullband_catalog.fits')
-            groups = {}
-            for mid in np.unique(t['master_id']):
-                sub = t[t['master_id']==mid]
-                anchor = sub[np.asarray(sub['band']).astype(str)=='m600']
-                if len(anchor)!=1: continue
-                anchor_id = int(anchor['source_id'][0])
-                assert anchor_id not in groups
-                groups[anchor_id] = dict(signature=tuple(sorted(zip(sub['band'],sub['source_id']))),
-                    residual=float(np.nanmedian(sub['loo_residual_arcsec'])),
-                    snr=float(np.nanmedian(sub['snrratio'])))
-            grouped.append(groups)
-        old, new = grouped
-        common_anchor = set(old)&set(new)
-        stable = [k for k in common_anchor if old[k]['signature']==new[k]['signature']]
-        for name, keys, source in [('baseline_all',list(old),old),('branch_all',list(new),new),
-                                   ('stable_before',stable,old),('stable_after',stable,new),
-                                   ('new_fullband',list(set(new)-set(old)),new)]:
-            positional.append(dict(COSMOS=f,population=name,N=len(keys),
-                median_object_loo_arcsec=float(np.median([source[k]['residual'] for k in keys])),
-                median_object_snr=float(np.median([source[k]['snr'] for k in keys])),
-                stable_pairs=len(stable), changed_memberships=len(common_anchor)-len(stable)))
-        for label,diag in zip(['before','after'],diagnostics):
-            t = Table.read(diag/f'cosmos{f}_7dt_positional_quality_sample_summary.fits')
-            for row in t:
-                selected_types.append(dict(COSMOS=f,variant=label,sample=str(row['sample']),N=int(row['n_sources'])))
-            t = Table.read(diag/f'cosmos{f}_7dt_finalcat_matching_radius_diagnostics.fits')
-            t = t[np.isclose(t['radius_arcsec'],.7)]
-            actual = t[np.asarray(t['sample']).astype(str)=='actual'][0]
-            random = np.asarray(t['n_selected'][np.asarray(t['sample']).astype(str)=='random'])
-            radius.append(dict(COSMOS=f,variant=label,N_actual=int(actual['n_selected']),
-                median_sep_arcsec=float(actual['median_sep_arcsec']), random_mean=float(random.mean()),
-                random_min=int(random.min()),random_max=int(random.max()),
-                random_over_actual_percent=100*float(random.mean()/actual['n_selected'])))
-    position = save(positional,'positional_population_control')
-    radii = save(radius,'chance_alignment_proxy')
-    save(raw_quality,'raw_measurement_quality'); save(assignments,'same_object_associations')
-    save(selected_types,'fullband_sample_composition')
+    # The historical LOO residuals and random-offset results require diagnostic
+    # products that were removed. Reuse their explicitly labelled snapshot, not
+    # an approximate reconstruction from the master. These CSVs are independent
+    # of OUT, so a notebook may stage new output in a temporary directory.
+    def historical(name):
+        path = HISTORICAL_SUMMARIES / f'{name}.csv'
+        if not path.exists():
+            raise FileNotFoundError(f'Historical diagnostic summary required: {path}')
+        print(f'Reusing historical diagnostic summary: {path}')
+        return Table.read(path, format='ascii.csv')
+
+    position = historical('positional_population_control')
+    radii = historical('chance_alignment_proxy')
+    composition = historical('fullband_sample_composition')
+    for table, name in [(position, 'positional_population_control'),
+                        (radii, 'chance_alignment_proxy'),
+                        (composition, 'fullband_sample_composition')]:
+        table.write(OUT / f'{name}.csv', format='ascii.csv', overwrite=True)
+    save(raw_quality,'raw_measurement_quality')
+    save(assignments,'same_object_associations')
     depth = Table.read(EXP/'comparison/depth_before_after.csv')
     depth_delta = values(depth,'branch_median_depth_AB')-values(depth,'baseline_median_depth_AB')
-    summary = dict(photometry_rerun=False, N_reference_bright=int(bright.sum()),
+    summary = dict(photometry_rerun=False, diagnostic_summaries='historical saved CSV; not recalculated', N_reference_bright=int(bright.sum()),
         N_bright_20band_eligible=int((bright&(n_available==20)).sum()),
         depth_median_shift_mag=float(np.nanmedian(depth_delta)),
         depth_shift_min_mag=float(np.nanmin(depth_delta)),depth_shift_max_mag=float(np.nanmax(depth_delta)),
@@ -208,7 +189,11 @@ def main():
     axes[1,1].set(xlabel='COSMOS field',ylabel='Offset-match count / actual [%] (proxy)');axes[1,1].set_xticks(range(1,5));axes[1,1].legend()
     for ax in axes.flat: ax.grid(axis='y',alpha=.2)
     fig.suptitle('Aperture-flag ablation: recovery, paired controls and chance-alignment proxy')
-    fig.savefig(OUT/'statistical_audit.png',dpi=170)
+    # Notebook callers can display the audit without exporting a PNG.
+    if save_figures:
+        fig.savefig(OUT/'statistical_audit.png',dpi=170)
+    else:
+        plt.show()
     plt.close(fig)
     print(pop); print(magnitude); print(position); print(radii); print(summary)
     return OUT

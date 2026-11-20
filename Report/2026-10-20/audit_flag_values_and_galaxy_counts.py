@@ -55,7 +55,7 @@ def main():
     pooled = Counter()
     for f in range(1,5):
         d = ROOT/f'output/COSMOS{f}/singlephot'
-        masters = [Table.read(EXP/f'baseline/output/COSMOS{f}/singlephot/cosmos{f}_master_catalog.fits'),
+        masters = [Table.read(ROOT/f'output/archive/cosmos{f}_master_catalog.fits'),
                    Table.read(d/f'cosmos{f}_master_catalog.fits')]
         bands = masters[0].meta['ACTBANDS'].split(',')
         namespace = dict(np=np, valid_mask=fits.getdata(ROOT/f'COSMOS_data/COSMOS{f}/COSMOS{f}_validmask.fits').astype(bool))
@@ -65,11 +65,14 @@ def main():
             for stage,use in selection.items():
                 stage_rows.append(dict(COSMOS=f,variant=label,stage=stage,N_master_rows=int(use.sum()),
                     N_unique_SDSS_objid=len(np.unique(val(t,'sdss_objid',-1)[use]))))
-            # Independently reconstructed S3 must agree with the saved diagnostic.
-            diag = (EXP/f'baseline/full_products/COSMOS{f}/singlephot/diagnostics') if label=='before' else d/'diagnostics'
-            summary = Table.read(diag/f'cosmos{f}_7dt_positional_quality_sample_summary.fits')
-            stored = summary[np.asarray(summary['sample']).astype(str)=='S3_galaxy']['n_sources'][0]
-            assert int(selection['full_available_bands'].sum()) == int(stored)
+            # Historical positional diagnostics were removed. The complete-band
+            # galaxy selection above is reconstructed directly from the master;
+            # compare to a saved summary only when that independent file exists.
+            diag = d/'diagnostics'/f'cosmos{f}_7dt_positional_quality_sample_summary.fits'
+            if label == 'after' and diag.exists():
+                summary = Table.read(diag)
+                stored = summary[np.asarray(summary['sample']).astype(str)=='S3_galaxy']['n_sources'][0]
+                assert int(selection['full_available_bands'].sum()) == int(stored)
         totals = Counter()
         flags_by_source = {}
         for band in bands:
