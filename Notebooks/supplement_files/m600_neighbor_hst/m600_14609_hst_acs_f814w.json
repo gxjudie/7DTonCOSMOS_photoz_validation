@@ -1,0 +1,15 @@
+{
+  "source_id": 14609,
+  "ra": 149.49491423336755,
+  "dec": 2.2807639571878138,
+  "width_arcsec": 40.905000000006474,
+  "sia_url": "https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=COSMOS&hdr_location=%5CCOSMOSDataPath%5C&collection_desc=Cosmic+Evolution+Survey+with+HST+%28COSMOS%29&SIAP_ACTIVE=1&POS=149.49491423336755%2C2.2807639571878138&SIZE=0.013584722222224021&FORMAT=image%2Ffits",
+  "input_urls": [
+    "https://irsa.ipac.caltech.edu/cgi-bin/Subimage/nph-subimage?origfile=%2Firsadata%2FCOSMOS%2Fimages%2Facs_2.0%2FI%2Facs_I_095755%2B0215_unrot_sci_20.fits&ra=149.49491423336755&dec=2.2807639571878138&xsize=0.013584722222224021",
+    "https://irsa.ipac.caltech.edu/cgi-bin/Subimage/nph-subimage?origfile=%2Firsadata%2FCOSMOS%2Fimages%2Facs_2.0%2FI%2Facs_I_095757%2B0218_unrot_sci_20.fits&ra=149.49491423336755&dec=2.2807639571878138&xsize=0.013584722222224021"
+  ],
+  "coverage_fraction": 1.0,
+  "no_coverage": false,
+  "display_only": true,
+  "projection": "north-up TAN; bilinear; mean overlap"
+}

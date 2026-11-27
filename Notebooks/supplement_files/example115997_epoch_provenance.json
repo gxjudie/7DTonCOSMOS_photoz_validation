@@ -1,0 +1,27 @@
+{
+  "sdss_objid": "1237653664722125019",
+  "sdss_query_url": "https://skyserver.sdss.org/dr17/SkyServerWS/SearchTools/SqlSearch",
+  "sdss_query": "SELECT p.objID,p.ra,p.dec,p.run,p.rerun,p.camcol,p.field,p.fieldID,f.mjd_r,f.mjd_g,f.mjd_i FROM PhotoObjAll p JOIN Field f ON p.fieldID=f.fieldID WHERE p.objID=1237653664722125019",
+  "sdss_result": {
+    "objID": "1237653664722125019",
+    "ra": 150.289737773052,
+    "dec": 1.91393626159928,
+    "run": 1907,
+    "rerun": 301,
+    "camcol": 3,
+    "field": 185,
+    "fieldID": "1237653664722124800",
+    "mjd_r": 51878.46566608,
+    "mjd_g": 51878.46898314,
+    "mjd_i": 51878.46649535
+  },
+  "hst_original_image": "/irsadata/COSMOS/images/acs_2.0/I/acs_I_100107+0154_unrot_sci_20.fits",
+  "hst_header": {
+    "DATE-OBS": "2004-03-22",
+    "EXPSTART": 53086.91970696,
+    "EXPEND": 53086.92558724,
+    "EXPTIME": 4056.0,
+    "NDRIZIM": 8,
+    "ROOTNAME": "j8pu2hirq"
+  }
+}
